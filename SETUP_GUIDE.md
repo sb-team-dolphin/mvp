@@ -582,6 +582,7 @@ aws logs tail /ecs/myapp-backend --follow
 
 **추가 작업:**
 - [x] RDS MySQL 데이터베이스 연동
+- [x] CodeDeploy Blue/Green 배포 설정
 - [ ] 도메인 연결 (Route 53)
 - [ ] HTTPS 설정 (ACM + ALB)
 - [ ] Auto Scaling 튜닝
@@ -628,4 +629,4 @@ curl http://<ALB_DNS>/api/users
 1. 코드 수정
 2. Git Push
 3. 자동 배포 확인
-4. Blue/Green 무중단 배포 확인
+4. CodeDeploy Blue/Green 무중단 배포 확인

@@ -63,7 +63,12 @@ terraform/
 │   │   ├── variables.tf
 │   │   └── outputs.tf
 │   │
-│   └── rds/               # RDS MySQL Database
+│   ├── rds/               # RDS MySQL Database
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   └── codedeploy/        # CodeDeploy for Blue/Green
 │       ├── main.tf
 │       ├── variables.tf
 │       └── outputs.tf
@@ -112,7 +117,7 @@ Launch Type: Fargate (서버리스)
 CPU: 256, 512, 1024, 2048 (선택)
 Memory: 512MB, 1GB, 2GB, 4GB (선택)
 Desired Count: 2 (최소 가용성)
-Deployment Type: Rolling Update (기본)
+Deployment Type: Blue/Green (CodeDeploy)
 ```
 
 ---

@@ -41,7 +41,8 @@ Terraform + GitHub Actions + AWS ECS (Fargate) + Blue/Green 배포를 활용한 
 │       ├── alb/
 │       ├── ecr/
 │       ├── iam/
-│       └── rds/
+│       ├── rds/
+│       └── codedeploy/
 │
 ├── .github/
 │   └── workflows/
@@ -248,7 +249,8 @@ aws elbv2 describe-load-balancers \
 
 ## 주요 기능
 
-### 1. 무중단 배포 (Blue/Green)
+### 1. 무중단 배포 (Blue/Green with CodeDeploy)
+- AWS CodeDeploy를 통한 Blue/Green 배포 지원
 - 새 버전 배포 시 기존 서비스 중단 없음
 - 자동 Health Check 및 트래픽 전환
 - 문제 발생 시 자동 롤백

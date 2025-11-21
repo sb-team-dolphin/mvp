@@ -13,7 +13,7 @@
 1. **Infrastructure as Code (IaC)**: Terraform으로 모든 인프라 관리
 2. **CI/CD 자동화**: GitHub Actions로 완전 자동화된 배포 파이프라인
 3. **컨테이너 기반**: Docker + AWS ECS (Fargate)로 서버리스 운영
-4. **무중단 배포**: Rolling Update로 서비스 중단 없는 배포
+4. **무중단 배포**: Blue/Green (CodeDeploy)로 서비스 중단 없는 배포
 5. **Auto Scaling**: CPU/Memory 기반 자동 스케일링
 6. **모니터링**: CloudWatch로 실시간 로그 및 메트릭 수집
 
@@ -106,7 +106,8 @@ SoftBank/
 │   │   ├── alb/
 │   │   ├── ecr/
 │   │   ├── iam/
-│   │   └── rds/
+│   │   ├── rds/
+│   │   └── codedeploy/
 │   └── README.md
 │
 ├── .github/
@@ -193,7 +194,7 @@ git push origin main
 ### 배포 시간
 - **CI 단계 (Build + Test)**: 2-3분
 - **Docker Build + ECR Push**: 2-3분
-- **ECS 배포 (Rolling Update)**: 2-3분
+- **ECS 배포 (Blue/Green)**: 3-5분
 - **총 배포 시간**: **약 7-10분**
 
 ### 가용성
@@ -221,6 +222,7 @@ git push origin main
 - [x] Auto Scaling Policies
 - [x] RDS MySQL Database
 - [x] Secrets Manager (DB Password)
+- [x] CodeDeploy (Blue/Green Deployment)
 
 ### Application
 - [x] Spring Boot Backend API
@@ -256,7 +258,7 @@ git push origin main
 - [ ] 비용 모니터링 대시보드
 
 ### 중기 (1개월)
-- [ ] Blue/Green 배포 (CodeDeploy)
+- [x] Blue/Green 배포 (CodeDeploy) ✅ 완료
 - [ ] ElastiCache Redis 추가
 - [ ] ECS Exec 활성화 (DB 디버깅용)
 
@@ -286,7 +288,7 @@ git push origin main
 
 ### Infrastructure
 - Terraform 1.0+
-- AWS (ECS, ALB, ECR, VPC, RDS)
+- AWS (ECS, ALB, ECR, VPC, RDS, CodeDeploy)
 - Docker
 - Nginx
 
